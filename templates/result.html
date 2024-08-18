@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Result</title>
+</head>
+<body>
+    <h1>Evaluation Result</h1>
+    {% if scores %}
+        <ul>
+            {% for score in scores %}
+                <li>
+                    Word: {{ score.word }} <br>
+                    IPA: {{ score.ipa }} <br>
+                    Accuracy: {{ score.accuracy }} <br>
+                    Phonemes:
+                    <ul>
+                        {% for phoneme in score.phonemes %}
+                            <li>{{ phoneme.phoneme }} - Accuracy: {{ phoneme.accuracy }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No scores available.</p>
+    {% endif %}
+</body>
+</html
